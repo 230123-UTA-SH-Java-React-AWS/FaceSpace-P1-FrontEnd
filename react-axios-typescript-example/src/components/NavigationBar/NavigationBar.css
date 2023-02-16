@@ -1,0 +1,25 @@
+.flex{
+  display: flex;
+
+  flex-direction: row;
+  gap: 20px;
+}
+
+.click{
+  text-decoration: none;
+  color: black;
+  margin: 5px;
+  padding: 8px;
+}
+
+.click:hover{
+  background-color: black;
+  color: white;
+
+
+
+}
+
+.right{
+  margin-left:69%;
+}
