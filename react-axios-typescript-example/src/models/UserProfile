@@ -1,4 +1,4 @@
-export interface Login{
+export interface UserProfile{
     id:number,
     email:string,
     password:string,
