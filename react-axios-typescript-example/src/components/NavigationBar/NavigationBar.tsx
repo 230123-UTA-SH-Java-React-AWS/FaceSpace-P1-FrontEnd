@@ -3,9 +3,9 @@ import "./NavigationBar.css";
 function NavigationBar(){
   return <div className="flex">
     
-    <Link to ="/" className="click">FaceSpace </Link>
+    <Link to ="/" className="left click">FaceSpace </Link>
     <Link to ="/Login" className="right click">SignIn </Link>
-    <Link to ="/" className="click">Register </Link>
+    <Link to ="/" className="right click">Register </Link>
   </div>
 
 }
