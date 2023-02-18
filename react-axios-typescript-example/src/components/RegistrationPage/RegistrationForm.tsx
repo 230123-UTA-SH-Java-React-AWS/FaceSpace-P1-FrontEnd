@@ -49,7 +49,7 @@ function Registration() {
             </Row>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address </Form.Label>
+                <Form.Label>Email Address </Form.Label>
                 <Form.Control required type="email" placeholder="Email" />
             </Form.Group>
 
