@@ -5,8 +5,9 @@ function NavigationBar(){
     
     <Link to ="/" className="left click">FaceSpace </Link>
     <Link to ="/Login" className="right click">SignIn </Link>
-    <Link to ="/" className="right click">Register </Link>
+    <Link to ="/Register" className="right click">Register </Link>
     <Link to ="/Post" className="right click">Post </Link>
+   
   </div>
 
 }

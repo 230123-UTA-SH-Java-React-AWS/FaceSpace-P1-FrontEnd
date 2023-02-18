@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginBox from './components/LoginPage/LoginBox';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Post from './components/Post/Post';
+import RegistrationForm from './components/RegistrationPage/RegistrationForm';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -19,6 +20,7 @@ root.render(
       <Route path = "/" element = {<App />} />
       <Route path = "/Login" element = {<LoginBox />} />
       <Route path = "/Post" element = {<Post />} />
+      <Route path = "/Register" element = {<RegistrationForm />} />
     </Routes>
   </BrowserRouter>
 </React.StrictMode>

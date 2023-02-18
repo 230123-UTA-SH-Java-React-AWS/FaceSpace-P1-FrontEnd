@@ -1,0 +1,17 @@
+.center {
+    padding: 10px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-left: 20% ;
+    margin-right: 20% ;
+    text-align: left;
+  }
+
+  .formFormat {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
