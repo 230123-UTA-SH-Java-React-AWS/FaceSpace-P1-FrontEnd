@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LoginBox from './components/LoginPage/LoginBox';
 import NavigationBar from './components/NavigationBar/NavigationBar';
+import Post from './components/Post/Post';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -17,6 +18,7 @@ root.render(
     <Routes>
       <Route path = "/" element = {<App />} />
       <Route path = "/Login" element = {<LoginBox />} />
+      <Route path = "/Post" element = {<Post />} />
     </Routes>
   </BrowserRouter>
 </React.StrictMode>
