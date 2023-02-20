@@ -22,6 +22,15 @@ export class Registeration extends Component<Prop, State> {
 
 };
 
+function submitRegister(){
+    let userFirstName =document.querySelector<HTMLInputElement>("#validationCustom01")?.value;
+    let userLastName =document.querySelector<HTMLInputElement>("#validationCustom02")?.value;
+    let userEmail =document.querySelector<HTMLInputElement>("#formBasicEmail")?.value;
+    let userPassword =document.querySelector<HTMLInputElement>("#formBasicPassword")?.value;
+
+    console.log(userFirstName,userLastName,userEmail,userPassword);
+}
+
 function Registration() {
 
     const [validated, setValidated] = useState(false);
@@ -40,7 +49,7 @@ function Registration() {
             <Row className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
                     <Form.Label>First name</Form.Label>
-                    <Form.Control required type="text" placeholder="First name"/>
+                    <Form.Control  required type="text" placeholder="First name"/>
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="validationCustom02">
                     <Form.Label>Last name</Form.Label>
@@ -64,7 +73,7 @@ function Registration() {
             </Form.Group>
 
             <br></br>
-            <Button variant="primary" type="submit" onSubmit={console.log}>
+            <Button variant="primary" type="submit" onClick = {submitRegister}>
                 Register
             </Button>
 
