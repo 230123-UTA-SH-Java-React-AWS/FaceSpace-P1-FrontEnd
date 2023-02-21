@@ -10,6 +10,7 @@ import Post from './components/Post/Post';
 import RegistrationForm from './components/RegistrationPage/RegistrationForm';
 import Login from './Data/Login';
 import CreatePost from './components/CreatePost/CreatePost';
+import UserProfile from './components/UserProfile/UserProfile';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,6 +25,7 @@ root.render(
       <Route path = "/Post" element = {<Post />} />
       <Route path = "/Register" element = {<RegistrationForm />} />
       <Route path = "/CreatePost" element = {<CreatePost />}/>
+      <Route path = "/MyProfile" element = {<UserProfile />}/>
     </Routes>
   </BrowserRouter>
 </React.StrictMode>

@@ -8,6 +8,7 @@ function NavigationBar(){
     <Link to ="/Register" className="right click">Register </Link>
     <Link to ="/Post" className="right click">Post </Link>
     <Link to ="/CreatePost" className="right click">CreatePost </Link>
+    <Link to ="/MyProfile" className="right click">My Profile </Link>
    
   </div>
 
