@@ -13,12 +13,14 @@ import { UProfile } from "../../models/UserProfile";
 
 function Registration() {
 
+    //Use useState hook to set the values
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
  
+    //get the value by onchange and use set from useState to change the value
     const handleInputFName= (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setFirstName(event.target.value);
     }
@@ -36,7 +38,7 @@ function Registration() {
    }
 
     
- 
+   //Validation for empty and same password
    const handleSubmitForm = () => {
 
     if(firstName == "" || undefined){
@@ -55,12 +57,14 @@ function Registration() {
         return console.log("Password and re-entered password cannot be different");
     }
 
+    //set backend variable to input value in frontend Ex: givenName is from backend model, firstName is from frontend useState
     const newUser = {
         givenName: firstName,
         surname: lastName,
         emailAdress: email,
         password: password,
     }
+    //axios used to connect backend, check backend controller to get the url. respone will hold the object of the data.
     axios.post<UProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
    }
 
