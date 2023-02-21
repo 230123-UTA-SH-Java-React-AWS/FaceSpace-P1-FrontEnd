@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import { type } from "os";
 import axios from 'axios';
 import React from "react";
-import { UserProfile } from "../../models/UserProfile";
+import { UProfile } from "../../models/UserProfile";
 
 function Registration() {
 
@@ -17,6 +17,7 @@ function Registration() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [rePassword, setRePassword] = useState('');
  
     const handleInputFName= (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setFirstName(event.target.value);
@@ -29,14 +30,29 @@ function Registration() {
    }
    const handleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setPassword(event.target.value);
-    }
+   }
+   const rehandleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+        setRePassword(event.target.value);
+   }
 
     
  
    const handleSubmitForm = () => {
 
     if(firstName == "" || undefined){
-        return console.log("Enter your first name!");
+        return console.log("First Name cannot be empty!");
+    }
+    if(lastName == "" || undefined){
+        return console.log("Last Name cannot be empty!");
+    }
+    if(email == "" || undefined){
+        return console.log("Email cannot be empty!");
+    }
+    if(password == "" || undefined){
+        return console.log("Password cannot be empty!");
+    }
+    if(password != rePassword){
+        return console.log("Password and re-entered password cannot be different");
     }
 
     const newUser = {
@@ -45,7 +61,7 @@ function Registration() {
         emailAdress: email,
         password: password,
     }
-    axios.post<UserProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
+    axios.post<UProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
    }
 
     const [validated, setValidated] = useState(false);
@@ -80,6 +96,11 @@ function Registration() {
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Create a Password</Form.Label>
                 <Form.Control required type="password" placeholder="Password" value={password} onChange={handleInputPassword}/>
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Re-enter your Password</Form.Label>
+                <Form.Control required type="password" placeholder="Password" value={rePassword} onChange={rehandleInputPassword}/>
             </Form.Group>
 
             {/* <Form.Group controlId="formFile" className="mb-3">

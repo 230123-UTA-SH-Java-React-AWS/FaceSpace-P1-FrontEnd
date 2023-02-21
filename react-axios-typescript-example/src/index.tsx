@@ -8,26 +8,29 @@ import LoginBox from './components/LoginPage/LoginBox';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import Post from './components/Post/Post';
 import RegistrationForm from './components/RegistrationPage/RegistrationForm';
-import Login from './Data/Login';
 import CreatePost from './components/CreatePost/CreatePost';
 import UserProfile from './components/UserProfile/UserProfile';
+import { Provider } from 'react-redux';
+import { store } from './shared/Redux/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-  <BrowserRouter>
-  <NavigationBar />
-    <Routes>
-      <Route path = "/" element = {<App />} />
-      <Route path = "/Login" element = {<LoginBox />} />
-      <Route path = "/Post" element = {<Post />} />
-      <Route path = "/Register" element = {<RegistrationForm />} />
-      <Route path = "/CreatePost" element = {<CreatePost />}/>
-      <Route path = "/MyProfile" element = {<UserProfile />}/>
-    </Routes>
-  </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+    <NavigationBar />
+      <Routes>
+        <Route path = "/" element = {<App />} />
+        <Route path = "/Login" element = {<LoginBox />} />
+        <Route path = "/Post" element = {<Post />} />
+        <Route path = "/Register" element = {<RegistrationForm />} />
+        <Route path = "/CreatePost" element = {<CreatePost />}/>
+        <Route path = "/MyProfile" element = {<UserProfile />}/>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 </React.StrictMode>
 );
 
