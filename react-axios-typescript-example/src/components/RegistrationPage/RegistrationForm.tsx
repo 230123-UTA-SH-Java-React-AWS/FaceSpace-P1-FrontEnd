@@ -30,15 +30,22 @@ function Registration() {
    const handleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setPassword(event.target.value);
     }
+
+    
  
    const handleSubmitForm = () => {
+
+    if(firstName == "" || undefined){
+        return console.log("Enter your first name!");
+    }
+
     const newUser = {
         givenName: firstName,
         surname: lastName,
-        userEmail: email,
-        userPassword: password,
+        emailAdress: email,
+        password: password,
     }
-    axios.post<UserProfile>(`http://localhost:3000/signup`, newUser).then(response => {console.log(response.data);})
+    axios.post<UserProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
    }
 
     const [validated, setValidated] = useState(false);
