@@ -1,11 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import UserSlice from "../../components/LoginPage/UserSlice";
+import PostSlice from "../../components/Post/PostSlice";
 
 
 export const store = configureStore({
     reducer: {
         user: UserSlice,
-      //  post: PostSlice
+        post: PostSlice
     }
 })
 

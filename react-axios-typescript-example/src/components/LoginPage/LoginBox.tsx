@@ -1,22 +1,22 @@
 import axios from 'axios';
-import { useState } from "react";
-import { Link } from 'react-router-dom';
-import { Login } from "../../models/Login";
+import { Link, useNavigate } from 'react-router-dom';
 import { User } from '../../models/User';
-
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import CreatePost from '../CreatePost/CreatePost';
-import UserProfile from '../UserProfile/UserProfile';
 import "./LoginBox.css"
 import { selectUser, setUser } from './UserSlice';
 
 
-
 function LoginBox() {
-
     const user = useAppSelector(selectUser);
-
     const dispatch = useAppDispatch();
+    const navigate = useNavigate();
+
+    function GotoUserPage(){
+        if(user.emailAddress !== "User is not logged in"){
+            navigate('/CreatePost');
+        }
+    }
 
     function Login(){
         let userEmail = document.querySelector<HTMLInputElement>("#loginEmail")?.value;
@@ -29,35 +29,22 @@ function LoginBox() {
             givenName: '',
             surname: ''
         }
-        
-        // let url = `http://localhost:8080/api/users`;
-        // axios.post<UserInfo>(url,newUser).then(response => {
-        //     dispatch(dispatch(setUser(response.data)));
 
         let url = `http://localhost:8080/api/login`;
-
 
         axios.post<User>(url,newUser).then(response => {
             dispatch(setUser(response.data)); 
             console.log(response.data);
+            if(response.data.emailAddress !== "User is not logged in"){
+                navigate('/CreatePost');
+            }
         })
     }
 
-    // const [EP, setEP] = useState('');
-
-    // const loginForm = (event: React.FormEvent<HTMLFormElement>) => {
-    //     event.preventDefault();
-
-
-    //     const newLogin = {
-    //         email: userEmail,
-    //         password: userPassword
-    //     }
-
-    //     axios.post<Login>(`http://localhost:3000/user/login`, newLogin).then(response => {console.log(response.data);
-    // })
-
-    // }
+    const clickHanler = () =>{
+        GotoUserPage();
+        Login();
+    };
 
     return <div id = "LoginBorder" className= "center">
         <h2>Login</h2>
@@ -73,7 +60,7 @@ function LoginBox() {
             </p>
         </form>
         <p>
-            <button onClick={Login} type = "submit" >Login</button>
+            <button onClick={clickHanler}  type = "submit" >Login</button>
         </p>
         <footer>
             <p>Do not have an account?
@@ -83,6 +70,5 @@ function LoginBox() {
     </div>
     
 }
-
 
 export default LoginBox;
