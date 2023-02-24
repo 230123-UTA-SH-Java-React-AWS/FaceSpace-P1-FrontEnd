@@ -3,7 +3,6 @@ import { RootState } from "../../shared/Redux/store";
 import { User } from "../../models/User";
 
 const initialState:User = {
-
     id:0,
     emailAddress:"User is not logged i",
     password:"",
