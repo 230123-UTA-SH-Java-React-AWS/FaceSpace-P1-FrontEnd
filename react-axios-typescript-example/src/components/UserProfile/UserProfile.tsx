@@ -11,19 +11,19 @@ import { Stack } from "react-bootstrap";
 import Post from "../Post/Post";
 import { userInfo } from "os";
 import CreatePost from "../CreatePost/CreatePost";
+import { PostInfo } from "../../models/PostInfo";
+import { selectPostInfo } from "../Post/PostSlice";
 
 export default function UserProfile(){
 
   const currentUser = useAppSelector(selectUser);
-  const [user, setUser] = useState();
+  const [listOfPost, setListOfPost] = useState<PostInfo[]>([]);
+ // const listOfPost = useAppSelector(selectPostInfo);
 
-  axios.get<UserInfo>(`http://localhost:8080/api/users/${1}`).then(response => {console.log(response.data);
-   // setUser([response.data,...userInfo]);
+  axios.get<UserInfo>(`http://localhost:8080/api/users/${currentUser.id}`).then(response => {console.log(response.data);})
+  axios.get<PostInfo>(`http://localhost:8080/api/posts/${currentUser.id}`).then(response => {console.log(response.data);
+      setListOfPost([response.data,...listOfPost])
   })
-//  axios.get<Post>(`http://localhost:8080/api/posts/{userId}`, ${id}).then(response => {console.log(response.data);}
-//   setListOfPost([response.data,...listOfPost])
-//  )
-  
 
   return <div>
 
@@ -65,19 +65,18 @@ export default function UserProfile(){
       </Container>
     </div>
 
-        <div className="box grid"> Post Post something ...
-                {/* {
-                    listOfPost.map(Post => {
-                        return <Post {...Post} key={Post.writtenText}/>
-                    })
-                } */}
-          </div>
-          <div className="box grid">
-          <CreatePost />
-          </div>
+    <div className="box grid">
+      {
+        listOfPost.map(posts => {
+          return <Post {...Post} key={posts.writtenText}/>
+        })
+      }
+    </div>
+    <div className="box grid">
+      <CreatePost />
+    </div>
     
     </div>
     
   }
-  
   
