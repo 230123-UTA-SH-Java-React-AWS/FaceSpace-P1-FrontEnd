@@ -69,7 +69,7 @@ function Post(){
         //username from user slice store
         }
         <div className="text-center">
-          {user.id}
+          {user.givenName} {user.surname}
           </div>
       </div>
       {

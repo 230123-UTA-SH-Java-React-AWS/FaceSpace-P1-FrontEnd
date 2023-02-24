@@ -4,5 +4,4 @@ export interface UProfile {
     password:string,
     firstName:string,
     lastName:string,
-    img?:string
 }

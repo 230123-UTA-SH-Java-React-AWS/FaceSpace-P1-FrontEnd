@@ -11,11 +11,11 @@ function NavigationBar(){
     
     <Link to ="/" className="left click">FaceSpace </Link>
     {
-      user.email != "User is not logged in" && 
+      user.emailAddress != "User is not logged in" && 
       <div className="right click" onClick={() => {dispatch(setDefault())}}>Logout</div>
     }
     {
-      user.email == "User is not logged in" && 
+      user.emailAddress == "User is not logged in" && 
       <Link to ="/Login" className="right click">SignIn </Link>
     }
     <Link to ="/Register" className="right click">Register </Link>
