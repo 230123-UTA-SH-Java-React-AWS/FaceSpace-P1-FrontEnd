@@ -1,9 +1,9 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../shared/Redux/store";
-import { UProfile } from "../../models/UserProfile";
 import { User } from "../../models/User";
 
 const initialState:User = {
+
     id:0,
     emailAddress:"User is not logged in",
     password:"",
@@ -15,7 +15,9 @@ const UserSlice = createSlice({
     name:"user",
     initialState,
     reducers: {
+
         setUser: (state, action:PayloadAction<User>) => {
+
             state.id = action.payload.id;
             state.emailAddress = action.payload.emailAddress;
             state.password = action.payload.password;

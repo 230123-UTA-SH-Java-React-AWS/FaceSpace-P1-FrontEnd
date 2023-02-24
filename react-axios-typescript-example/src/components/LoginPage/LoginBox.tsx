@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { Login } from "../../models/Login";
 import { User } from '../../models/User';
-import { UProfile } from "../../models/UserProfile";
+
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import CreatePost from '../CreatePost/CreatePost';
 import UserProfile from '../UserProfile/UserProfile';
@@ -30,7 +30,12 @@ function LoginBox() {
             surname: ''
         }
         
+        // let url = `http://localhost:8080/api/users`;
+        // axios.post<UserInfo>(url,newUser).then(response => {
+        //     dispatch(dispatch(setUser(response.data)));
+
         let url = `http://localhost:8080/api/login`;
+
 
         axios.post<User>(url,newUser).then(response => {
             dispatch(setUser(response.data)); 

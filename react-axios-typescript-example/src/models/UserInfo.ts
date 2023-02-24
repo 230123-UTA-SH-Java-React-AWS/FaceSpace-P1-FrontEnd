@@ -1,4 +1,4 @@
-export interface UProfile {
+export interface UserInfo {
     id:number,
     email:string,
     password:string,

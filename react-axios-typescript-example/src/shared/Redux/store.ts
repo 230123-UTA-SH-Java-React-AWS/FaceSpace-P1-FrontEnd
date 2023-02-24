@@ -4,7 +4,8 @@ import UserSlice from "../../components/LoginPage/UserSlice";
 
 export const store = configureStore({
     reducer: {
-        user: UserSlice
+        user: UserSlice,
+      //  post: PostSlice
     }
 })
 
