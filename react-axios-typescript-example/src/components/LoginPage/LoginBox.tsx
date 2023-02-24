@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from "react";
 import { Login } from "../../models/Login";
-import { UProfile } from "../../models/UserProfile";
+import { UserInfo } from "../../models/UserInfo";
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import UserProfile from '../UserProfile/UserProfile';
 import "./LoginBox.css"
@@ -25,7 +25,7 @@ function LoginBox() {
         }
         
         let url = `http://localhost:8080/api/users`;
-        axios.post<UProfile>(url,newUser).then(response => {
+        axios.post<UserInfo>(url,newUser).then(response => {
             dispatch(dispatch(setUser(response.data)));
         })
     }
