@@ -2,6 +2,8 @@ import { createContext, useContext, useState } from "react";
 import "./Post.css";
 import { Comment } from "../../models/Comment";
 import Comments from "../Comment/Comments";
+import { useAppSelector } from "../../shared/Redux/hook";
+import { selectUser } from "../LoginPage/UserSlice";
 
 
 function Post(){
@@ -10,6 +12,7 @@ function Post(){
   const [showComment, setShowComment] = useState(false);
   const [countLike, setCountLike] = useState(0);
   const [like, setLike] = useState(false);
+  const user = useAppSelector(selectUser);
 
   function submitComment(){
     let comment = document.querySelector<HTMLInputElement>("#comment")?.value || "";
@@ -65,7 +68,9 @@ function Post(){
         {
         //username from user slice store
         }
-        <div className="text-center">YanWingTsui</div>
+        <div className="text-center">
+          {user.id}
+          </div>
       </div>
       {
         //post information for user slic store

@@ -18,7 +18,7 @@ function Registration() {
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [rePassword, setRePassword] = useState('');
+    // const [rePassword, setRePassword] = useState('');
  
     //get the value by onchange and use set from useState to change the value
     const handleInputFName= (event: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -33,29 +33,29 @@ function Registration() {
    const handleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setPassword(event.target.value);
    }
-   const rehandleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        setRePassword(event.target.value);
-   }
+//    const rehandleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+//         setRePassword(event.target.value);
+//    }
 
     
    //Validation for empty and same password
    const handleSubmitForm = () => {
 
-    if(firstName == "" || undefined){
-        return console.log("First Name cannot be empty!");
-    }
-    if(lastName == "" || undefined){
-        return console.log("Last Name cannot be empty!");
-    }
-    if(email == "" || undefined){
-        return console.log("Email cannot be empty!");
-    }
-    if(password == "" || undefined){
-        return console.log("Password cannot be empty!");
-    }
-    if(password != rePassword){
-        return console.log("Password and re-entered password cannot be different");
-    }
+    // if(firstName == "" || undefined){
+    //     return console.log("First Name cannot be empty!");
+    // }
+    // if(lastName == "" || undefined){
+    //     return console.log("Last Name cannot be empty!");
+    // }
+    // if(email == "" || undefined){
+    //     return console.log("Email cannot be empty!");
+    // }
+    // if(password == "" || undefined){
+    //     return console.log("Password cannot be empty!");
+    // }
+    // if(password != rePassword){
+    //     return console.log("Password and re-entered password cannot be different");
+    // }
 
     //set backend variable to input value in frontend Ex: givenName is from backend model, firstName is from frontend useState
     const newUser = {
@@ -66,7 +66,7 @@ function Registration() {
     }
     //axios used to connect backend, check backend controller to get the url. respone will hold the object of the data.
     axios.post<UProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
-   }
+    }
 
     const [validated, setValidated] = useState(false);
     const handleSubmit = (event: { currentTarget: any; preventDefault: () => void; stopPropagation: () => void; }) => {
@@ -99,13 +99,13 @@ function Registration() {
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Create a Password</Form.Label>
-                <Form.Control required type="password" placeholder="Password" value={password} onChange={handleInputPassword}/>
+                <Form.Control required type="password" placeholder="Password" value={password} onChange={handleInputPassword }/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            {/* <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Re-enter your Password</Form.Label>
                 <Form.Control required type="password" placeholder="Password" value={rePassword} onChange={rehandleInputPassword}/>
-            </Form.Group>
+            </Form.Group> */}
 
             {/* <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Upload Your Picture</Form.Label>
