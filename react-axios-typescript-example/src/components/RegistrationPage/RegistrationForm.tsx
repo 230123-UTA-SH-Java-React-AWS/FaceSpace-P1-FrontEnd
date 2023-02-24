@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col';
 import { type } from "os";
 import axios from 'axios';
 import React from "react";
-import { UProfile } from "../../models/UserProfile";
+import { UserInfo } from "../../models/UserInfo";
 
 function Registration() {
 
@@ -65,7 +65,7 @@ function Registration() {
         password: password,
     }
     //axios used to connect backend, check backend controller to get the url. respone will hold the object of the data.
-    axios.post<UProfile>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
+    axios.post<UserInfo>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
    }
 
     const [validated, setValidated] = useState(false);
@@ -102,7 +102,7 @@ function Registration() {
                 <Form.Control required type="password" placeholder="Password" value={password} onChange={handleInputPassword}/>
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Group className="mb-3" controlId="formPassword">
                 <Form.Label>Re-enter your Password</Form.Label>
                 <Form.Control required type="password" placeholder="Password" value={rePassword} onChange={rehandleInputPassword}/>
             </Form.Group>
