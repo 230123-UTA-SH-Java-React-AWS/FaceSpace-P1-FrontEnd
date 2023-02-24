@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useState } from "react";
+import { Link } from 'react-router-dom';
 import { Login } from "../../models/Login";
 import { UserInfo } from "../../models/UserInfo";
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
@@ -15,19 +16,36 @@ function LoginBox() {
 
     const dispatch = useAppDispatch();
 
-    function Login(){
+    async function Login(){
         let userEmail = document.querySelector<HTMLInputElement>("#loginEmail")?.value;
         let userPassword = document.querySelector<HTMLInputElement>("#loginPassword")?.value;
 
         const newUser = {
-            emailAdress: userEmail,
-            password: userPassword
+            id: 0,
+            emailAddress: userEmail,
+            password: userPassword,
+            givenName: '1',
+            surname: '1'
         }
         
-        let url = `http://localhost:8080/api/users`;
-        axios.post<UserInfo>(url,newUser).then(response => {
-            dispatch(dispatch(setUser(response.data)));
+        // let url = `http://localhost:8080/api/users`;
+        // axios.post<UserInfo>(url,newUser).then(response => {
+        //     dispatch(dispatch(setUser(response.data)));
+
+        let url = `http://localhost:8080/api/login`;
+
+        await axios.post<UserInfo>(url,newUser).then(response => {
+             dispatch(dispatch(setUser(response.data))); 
+            console.log(response.data);
         })
+
+        console.log(user.email);
+        
+        
+        if(user.id === 0){
+            <Link to ="/MyProfile"/>
+        }
+        
     }
 
     // const [EP, setEP] = useState('');
@@ -64,7 +82,7 @@ function LoginBox() {
         </p>
         <footer>
             <p>Do not have an account?
-                <a href=""> Create acccount</a>
+                <a href="/Register"> Create acccount</a>
             </p>
         </footer>
     </div>
