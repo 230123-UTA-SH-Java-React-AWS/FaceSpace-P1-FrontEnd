@@ -34,8 +34,8 @@ export default function UserProfile(){
             <img className="img" src="https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt=""/>
           </Col>
           <Col>
-            <h3>FirstName: {currentUser.surname} </h3>
-            <h3>LastName: {currentUser.givenName}</h3>
+            <h3>FirstName: {currentUser.givenName} </h3>
+            <h3>LastName: {currentUser.surname}</h3>
             <h3>Email: {currentUser.emailAddress}</h3>
           </Col>
         </Row>

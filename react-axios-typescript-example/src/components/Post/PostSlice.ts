@@ -9,7 +9,7 @@ const initialState:PostInfo = {
 }
 
 const PostInfoSlice = createSlice({
-    name:"user",
+    name:"text",
     initialState,
     reducers: {
         setPostInfo: (state, action:PayloadAction<PostInfo>) => {
@@ -20,7 +20,7 @@ const PostInfoSlice = createSlice({
 
         setDefault: (state) => {
             state.id = 0;
-            state.writtenText = "User is not logged in";
+            state.writtenText = "No Text";
             state.profileId = 0;
         }
     }
