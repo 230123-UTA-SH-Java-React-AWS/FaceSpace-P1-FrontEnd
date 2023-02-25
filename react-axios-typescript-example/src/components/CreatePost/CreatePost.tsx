@@ -48,8 +48,6 @@ function CreatePost(){
 
   function hi(){
     console.log(posts.Post);
-    console.log(posts.Post.map);
-    
   }
 
 

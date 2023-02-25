@@ -8,7 +8,7 @@ const initialState:ALPM = {
         id: 0,
         writtenText:"",
         profileId:0
-    }]
+    },]
 }
 
 const PostInfoSlice = createSlice({
