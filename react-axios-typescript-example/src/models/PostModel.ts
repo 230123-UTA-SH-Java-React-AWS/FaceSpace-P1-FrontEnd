@@ -1,5 +1,9 @@
-import { PostInfo } from "./PostInfo";
-
 export interface PostModel{
-  Post?: [{}]
+  id:number,
+  writtenText:string,
+  profileId:number
+}
+
+export interface ALPM{
+  Post:PostModel[]
 }

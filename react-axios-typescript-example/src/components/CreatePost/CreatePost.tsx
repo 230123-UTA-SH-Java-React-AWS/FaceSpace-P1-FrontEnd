@@ -5,7 +5,8 @@ import { PostModel } from "../../models/PostModel";
 import { User } from "../../models/User";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
-import { selectPostInfo, setPostInfo } from "../Post/PostSlice";
+import Post from "../Post/Post";
+import { selectPostInfo, setPostModel } from "../Post/PostSlice";
 
 
 function CreatePost(){
@@ -39,12 +40,16 @@ function CreatePost(){
 
     let url = `http://localhost:8080/api/posts`;
 
-    axios.get<PostInfo>(url).then(response => {
-      dispatch(setPostInfo(response.data));
-      console.log(response.data);
+    axios.get<PostModel>(url).then(response => {
+      dispatch(setPostModel(response.data));
     })
-      
 
+  }
+
+  function hi(){
+    console.log(posts.Post);
+    console.log(posts.Post.map);
+    
   }
 
 
@@ -53,6 +58,7 @@ function CreatePost(){
     <input type="text" placeholder="Write what you want to post!" value={writtenPost} onChange={handleInputWrittenPost} />
     <button  id="newPost" type="submit" onClick={submitPost}>Post</button>
     <button onClick={getPost}>GetPost</button>
+    <button onClick={hi}>Get</button>
   </div> 
 }
 
