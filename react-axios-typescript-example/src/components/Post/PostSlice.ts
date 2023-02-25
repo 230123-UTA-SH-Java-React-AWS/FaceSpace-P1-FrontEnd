@@ -11,7 +11,7 @@ const initialState:ALPM = {
     },]
 }
 
-const PostInfoSlice = createSlice({
+const PostModelSlice = createSlice({
     name:"text",
     initialState,
     reducers: {
@@ -22,9 +22,9 @@ const PostInfoSlice = createSlice({
 })
 
 
-export const {setPostModel} = PostInfoSlice.actions;
+export const {setPostModel} = PostModelSlice.actions;
 
-export default PostInfoSlice.reducer;
+export default PostModelSlice.reducer;
 
 export const selectPostInfo = (state:RootState) => state.posts;
 
