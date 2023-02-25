@@ -5,5 +5,6 @@ export interface PostModel{
 }
 
 export interface ALPM{
+  [x: string]: any
   Post:PostModel[]
 }
