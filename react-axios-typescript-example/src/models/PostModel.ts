@@ -1,5 +1,5 @@
+import { PostInfo } from "./PostInfo";
+
 export interface PostModel{
-  id: number,
-  writtenText: string,
-  profileId: number
+  Post?: [{}]
 }

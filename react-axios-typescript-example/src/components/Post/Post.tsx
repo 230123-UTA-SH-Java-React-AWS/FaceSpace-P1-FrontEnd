@@ -4,6 +4,7 @@ import { Comment } from "../../models/Comment";
 import Comments from "../Comment/Comments";
 import { useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
+import { selectPostInfo } from "./PostSlice";
 
 
 function Post(){

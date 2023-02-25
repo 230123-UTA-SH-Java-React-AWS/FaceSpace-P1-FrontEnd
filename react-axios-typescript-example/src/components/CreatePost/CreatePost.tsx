@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { PostInfo } from "../../models/PostInfo";
 import { PostModel } from "../../models/PostModel";
 import { User } from "../../models/User";
-import { useAppSelector } from "../../shared/Redux/hook";
+import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
+import { selectPostInfo, setPostInfo } from "../Post/PostSlice";
 
 
 function CreatePost(){
@@ -11,6 +13,8 @@ function CreatePost(){
 
   const[writtenPost, setWrittenPost] = useState('');
   const [listOfPost, setListOfPost] = useState<PostModel[]>([]);
+  const posts = useAppSelector(selectPostInfo);
+  const dispatch = useAppDispatch();
 
   const handleInputWrittenPost = (event: { target: {value: React.SetStateAction<string>;};}) => {
     setWrittenPost(event.target.value);
@@ -31,16 +35,15 @@ function CreatePost(){
   }
 
   function getPost(){
-    let postId = user.id;
+    let userId = user.id;
 
-    let url = `http://localhost:8080/api/posts/${postId}`;
+    let url = `http://localhost:8080/api/posts`;
 
-    axios.get<PostModel>(url).then(response => {
+    axios.get<PostInfo>(url).then(response => {
+      dispatch(setPostInfo(response.data));
       console.log(response.data);
-
-      setListOfPost([response.data,...listOfPost]);
-      
     })
+      
 
   }
 
@@ -49,6 +52,7 @@ function CreatePost(){
     <p>New Post</p>
     <input type="text" placeholder="Write what you want to post!" value={writtenPost} onChange={handleInputWrittenPost} />
     <button  id="newPost" type="submit" onClick={submitPost}>Post</button>
+    <button onClick={getPost}>GetPost</button>
   </div> 
 }
 
