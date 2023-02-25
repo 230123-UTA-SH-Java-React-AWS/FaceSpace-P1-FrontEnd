@@ -39,7 +39,6 @@ function NavigationBar(){
     <Link to ="/MyProfile" className="right click">My Profile </Link>
     }
     {
-      user.emailAddress === "User is not logged in" && 
       <Link to ="/SearchFriends" className="right click">SearchFriends </Link>
     }
 
