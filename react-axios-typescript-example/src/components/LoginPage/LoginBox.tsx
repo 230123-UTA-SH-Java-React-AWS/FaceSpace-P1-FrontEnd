@@ -14,7 +14,7 @@ function LoginBox() {
 
     function GotoUserPage(){
         if(user.emailAddress !== "User is not logged in"){
-            navigate('/CreatePost');
+            navigate('/MyProfile');
         }
     }
 
@@ -36,7 +36,7 @@ function LoginBox() {
             dispatch(setUser(response.data)); 
             console.log(response.data);
             if(response.data.emailAddress !== "User is not logged in"){
-                navigate('/CreatePost');
+                navigate('/MyProfile');
             }
         })
     }

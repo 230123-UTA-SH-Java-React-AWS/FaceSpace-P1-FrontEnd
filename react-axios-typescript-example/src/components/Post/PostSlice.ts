@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PostInfo } from "../../models/PostInfo";
 import { ALPM } from "../../models/PostModel";
 import { RootState } from "../../shared/Redux/store";
 

@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { PostInfo } from "../../models/PostInfo";
 import { PostModel } from "../../models/PostModel";
 import { User } from "../../models/User";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
