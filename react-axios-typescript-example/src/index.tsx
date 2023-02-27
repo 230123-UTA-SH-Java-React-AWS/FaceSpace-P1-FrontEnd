@@ -13,6 +13,7 @@ import UserProfile from './components/UserProfile/UserProfile';
 import { Provider } from 'react-redux';
 import { store } from './shared/Redux/store';
 import SearchFriends from './components/SearchFriends/SearchFriends';
+import Comments from './components/Comment/Comments';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -31,6 +32,7 @@ root.render(
         <Route path = "/CreatePost" element = {<CreatePost />}/>
         <Route path = "/MyProfile" element = {<UserProfile />}/>
         <Route path = "/SearchFriends" element = {<SearchFriends />}/>
+        <Route path = "/Comment" element = {<Comments />}/>
       </Routes>
     </BrowserRouter>
   </Provider>

@@ -4,7 +4,6 @@ export interface PostModel{
   profileId:number
 }
 
-export interface ALPM{
-  [x: string]: any
-  Post:PostModel[]
+export interface PostModel3{
+  Post:{step:PostModel[]}
 }

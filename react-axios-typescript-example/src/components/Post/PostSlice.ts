@@ -1,13 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { ALPM } from "../../models/PostModel";
+import { PostModel3 } from "../../models/PostModel";
 import { RootState } from "../../shared/Redux/store";
 
-const initialState:ALPM = {
-    Post:[{
-        id: 0,
-        writtenText:"",
-        profileId:0
-    },]
+const initialState:any = {
+    Post:{
+    }
 }
 
 const PostModelSlice = createSlice({
@@ -15,8 +12,11 @@ const PostModelSlice = createSlice({
     initialState,
     reducers: {
         setPostModel(state, action) {
-            state.Post.push(action.payload)
+            state.Post = action.payload;
         },
+    setDefault: (state) =>{
+        state.Post ={};
+    }
     }
 })
 

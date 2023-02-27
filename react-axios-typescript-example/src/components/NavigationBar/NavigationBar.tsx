@@ -34,6 +34,10 @@ function NavigationBar(){
       user.emailAddress !== "User is not logged in" && 
     <Link to ="/CreatePost" className="right click">CreatePost </Link>
     }
+     {
+      user.emailAddress !== "User is not logged in" && 
+    <Link to ="/Comment" className="right click">Comment </Link>
+    }
     {
       user.emailAddress !== "User is not logged in" &&  
     <Link to ="/MyProfile" className="right click">My Profile </Link>
