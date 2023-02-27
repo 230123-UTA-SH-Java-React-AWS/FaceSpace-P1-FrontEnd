@@ -27,7 +27,7 @@ function CreatePost(){
       profileId: user.id
     }
 
-    const url = `http://localhost:8080/api/posts`;
+    const url = `http://localhost:8080/api/post`;
 
     axios.post<Comment>(url, newPost).then(response => {
       console.log(response.data);
@@ -49,11 +49,12 @@ function CreatePost(){
   // }
 
   function hi(){
-     console.log((posts.Post[0].id));
-     console.log((posts.Post[0].writtenText));
-     console.log((posts.Post[0].profileId));
-     console.log((posts.Post));
-     console.log(user.id);
+      console.log((posts.Post[0].id));
+      console.log((posts.Post[0].writtenText));
+      console.log((posts.Post[0].profileId));
+      console.log((posts.Post));
+      console.log(user.id);
+
      
     // posting = posts.step[1];
     // console.log(posting);
