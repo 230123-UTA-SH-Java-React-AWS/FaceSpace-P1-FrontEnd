@@ -54,17 +54,18 @@ export default function SearchFriends() {
                     })
                 } */}
 
-            {JSON.stringify(listOfPeople)}
+            {/* {JSON.stringify(listOfPeople)} */}
 
-            {/* {
+            {
                 listOfPeople.map((user, index) => {
                     return(
                         <div key={index}>
-                            <p>firstName={user.email}</p>
+                            <p>firstName={user.firstName}</p>
                         </div>
                     )
                 })
-            } */}
+            }
+
                 
             </div>
         </Container>
