@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { Comment, Comment2 } from '../../models/Comment';
 import { PostModel } from '../../models/PostModel';
 import { User } from '../../models/User';
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
+import { setComment } from '../Comment/CommentSlice';
 import CreatePost from '../CreatePost/CreatePost';
 import { setPostModel } from '../Post/PostSlice';
 import "./LoginBox.css"
@@ -32,14 +34,16 @@ function LoginBox() {
             surname: ''
         }
 
-        let url1 = `http://localhost:8080/api/posts`;
+        let urlpost = `http://localhost:8080/api/posts`;
 
-        axios.get<PostModel>(url1).then(response => {
+        axios.get<PostModel>(urlpost).then(response => {
           dispatch(setPostModel(response.data));
         })
 
-        console.log(user);
-        
+        let urlcomment = `http://localhost:8080/api/comments`;
+        axios.get<Comment2>(urlcomment).then(response => {
+            dispatch(setComment(response.data));
+          })
 
         let url = `http://localhost:8080/api/login`;
 

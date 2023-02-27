@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PostModel3 } from "../../models/PostModel";
 import { RootState } from "../../shared/Redux/store";
 
 const initialState:any = {
