@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import { PostModel } from '../../models/PostModel';
 import { User } from '../../models/User';
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import CreatePost from '../CreatePost/CreatePost';
+import { setPostModel } from '../Post/PostSlice';
 import "./LoginBox.css"
 import { selectUser, setUser } from './UserSlice';
 
@@ -30,11 +32,19 @@ function LoginBox() {
             surname: ''
         }
 
+        let url1 = `http://localhost:8080/api/posts`;
+
+        axios.get<PostModel>(url1).then(response => {
+          dispatch(setPostModel(response.data));
+        })
+
+        console.log(user);
+        
+
         let url = `http://localhost:8080/api/login`;
 
         axios.post<User>(url,newUser).then(response => {
             dispatch(setUser(response.data)); 
-            console.log(response.data);
             if(response.data.emailAddress !== "User is not logged in"){
                 navigate('/MyProfile');
             }

@@ -14,7 +14,7 @@ function Post(){
   const [countLike, setCountLike] = useState(0);
   const [like, setLike] = useState(false);
   const user = useAppSelector(selectUser);
-    const posts = useAppSelector(selectPostInfo);
+  const posts = useAppSelector(selectPostInfo);
 
   // function submitComment(){
   //   let comment = document.querySelector<HTMLInputElement>("#comment")?.value || "";
@@ -63,6 +63,7 @@ function Post(){
   }
 
   return <div className="Post_Border">
+
     
       <div className="username">
         <img className="image" src="https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt="" />
@@ -76,7 +77,7 @@ function Post(){
       {
         //post information for user slic store
       }
-      <p className="inf">Today is cold.</p>
+      <p className="inf">{posts.Post[0].writtenText}</p>
     
     <hr></hr>
     <div className="Button">
