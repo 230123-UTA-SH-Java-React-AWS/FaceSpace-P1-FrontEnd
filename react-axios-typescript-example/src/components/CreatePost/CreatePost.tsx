@@ -32,6 +32,9 @@ function CreatePost(){
     axios.post<Comment>(url, newPost).then(response => {
       console.log(response.data);
     })
+
+    
+    
   }
 
   function getPost(){

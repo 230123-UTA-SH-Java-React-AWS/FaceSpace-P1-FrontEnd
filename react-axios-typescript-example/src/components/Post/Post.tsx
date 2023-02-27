@@ -9,26 +9,26 @@ import { PostModel } from "../../models/PostModel";
 
 function Post(){
 
-  const [lisOfComment, setListOfComment] = useState<Comment[]>([]);
+  // const [lisOfComment, setListOfComment] = useState<Comment[]>([]);
   const [showComment, setShowComment] = useState(false);
   const [countLike, setCountLike] = useState(0);
   const [like, setLike] = useState(false);
   const user = useAppSelector(selectUser);
+    const posts = useAppSelector(selectPostInfo);
 
-  function submitComment(){
-    let comment = document.querySelector<HTMLInputElement>("#comment")?.value || "";
+  // function submitComment(){
+  //   let comment = document.querySelector<HTMLInputElement>("#comment")?.value || "";
 
-    console.log(comment);
+  //   console.log(comment);
 
-    setListOfComment([{comment}, ...lisOfComment]);
+  //   setListOfComment([{comment}, ...lisOfComment]);
     
 
-    console.log(lisOfComment);
-    return <div>
-      <p>{comment}</p>
-    </div>
-    
-  }
+  //   console.log(lisOfComment);
+  //   return <div>
+  //     <p>{comment}</p>
+  //   </div>
+  // }
 
   function Show(){
     if(showComment){
@@ -38,19 +38,19 @@ function Post(){
     }
   }
 
-  function ShowC(){
-    if(showComment == true){
-      return <div className="grid-Box">
-      Comment:
-      <hr></hr>
-      {
-      lisOfComment.map(comment => {
-        return <Comments {...comment}/>
-    })
-      }
-      </div>
-    }
-  }
+  // function ShowC(){
+  //   if(showComment == true){
+  //     return <div className="grid-Box">
+  //     Comment:
+  //     <hr></hr>
+  //     {
+  //     lisOfComment.map(comment => {
+  //       return <Comments {...comment}/>
+  //   })
+  //     }
+  //     </div>
+  //   }
+  // }
 
   function Count(){
     if(like == true){
@@ -90,9 +90,9 @@ function Post(){
         <textarea id="comment" className= "input" typeof="text" placeholder="Write a comment"/>
        </form>
     
-      <input className="Sbutton" type= "button" value= "Add Comment" onClick={submitComment} />
+      <input className="Sbutton" type= "button" value= "Add Comment"  />
     </div>
-    <div>{ShowC()}</div>
+    {/* <div>{ShowC()}</div> */}
   </div>
 
 }
