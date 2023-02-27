@@ -1,6 +1,6 @@
 export interface UserInfo {
     id:number,
-    email:string,
+    emailAddress:string,
     password:string,
     firstName:string,
     lastName:string,
