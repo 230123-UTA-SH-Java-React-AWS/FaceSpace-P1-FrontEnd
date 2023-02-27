@@ -11,7 +11,7 @@ import { Stack } from "react-bootstrap";
 import Post from "../Post/Post";
 import { userInfo } from "os";
 import CreatePost from "../CreatePost/CreatePost";
-import { selectPostInfo, setPostModel } from "../Post/PostSlice";
+import { selectPostInfo, setPost } from "../Post/PostSlice";
 import { PostModel } from "../../models/PostModel";
 
 export default function UserProfile() {

@@ -6,7 +6,7 @@ import { User } from '../../models/User';
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import { setComment } from '../Comment/CommentSlice';
 import CreatePost from '../CreatePost/CreatePost';
-import { setPostModel } from '../Post/PostSlice';
+import { addPost, setPost } from '../Post/PostSlice';
 import "./LoginBox.css"
 import { selectUser, setUser } from './UserSlice';
 
@@ -36,8 +36,8 @@ function LoginBox() {
 
         let urlpost = `http://localhost:8080/api/posts`;
 
-        axios.get<PostModel>(urlpost).then(response => {
-          dispatch(setPostModel(response.data));
+        axios.get<PostModel[]>(urlpost).then(response => {
+          dispatch(setPost(response.data));
         })
 
         let urlcomment = `http://localhost:8080/api/comments`;

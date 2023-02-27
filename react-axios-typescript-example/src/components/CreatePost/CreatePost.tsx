@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { PostModel, PostModel3 } from "../../models/PostModel";
+import { PostModel } from "../../models/PostModel";
 import { User } from "../../models/User";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
 import Post from "../Post/Post";
-import { selectPostInfo, setPostModel } from "../Post/PostSlice";
+import { addPost, selectPostInfo, setPost } from "../Post/PostSlice";
 
 
 function CreatePost(){
@@ -23,17 +23,16 @@ function CreatePost(){
   function submitPost(){
 
     const newPost = {
+      id:0,
       writtenText: writtenPost,
       profileId: user.id
     }
 
     const url = `http://localhost:8080/api/posts`;
 
-    axios.post<Comment>(url, newPost).then(response => {
-      console.log(response.data);
-    })
-
-    
+    axios.post<PostModel>(url, newPost).then(response => {
+      dispatch(addPost(response.data));
+    })    
     
   }
 
@@ -49,11 +48,11 @@ function CreatePost(){
   // }
 
   function hi(){
-     console.log((posts.Post[0].id));
-     console.log((posts.Post[0].writtenText));
-     console.log((posts.Post[0].profileId));
-     console.log((posts.Post));
-     console.log(user.id);
+    //  console.log((posts.Post.step[0].id));
+    //  console.log((posts.Post.step[0].writtenText));
+    //  console.log((posts.Post.step[0].profileId));
+    //  console.log((posts.Post));
+     console.log(posts.Post);
      
     // posting = posts.step[1];
     // console.log(posting);
@@ -62,11 +61,14 @@ function CreatePost(){
 
 
   return <div className="Post_Border">
+    
     <p>New Post</p>
     <input type="text" placeholder="Write what you want to post!" value={writtenPost} onChange={handleInputWrittenPost} />
     <button  id="newPost" type="submit" onClick={submitPost}>Post</button>
     {/* <button onClick={getPost}>GetPost</button> */}
     <button onClick={hi}>Get</button>
+    <div>{posts.Post.map(posting => {return <div>{posting.writtenText}</div>})}</div>
+    
   </div> 
 }
 
