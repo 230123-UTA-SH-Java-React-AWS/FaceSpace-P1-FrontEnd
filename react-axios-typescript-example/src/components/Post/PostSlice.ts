@@ -1,35 +1,29 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { PostInfo } from "../../models/PostInfo";
+import { PostModel3 } from "../../models/PostModel";
 import { RootState } from "../../shared/Redux/store";
 
-const initialState:PostInfo = {
-    id:0,
-    writtenText:"",
-    profileId:0,
+const initialState:any = {
+    Post:{
+    }
 }
 
-const PostInfoSlice = createSlice({
+const PostModelSlice = createSlice({
     name:"text",
     initialState,
     reducers: {
-        setPostInfo: (state, action:PayloadAction<PostInfo>) => {
-            state.id = action.payload.id;
-            state.writtenText = action.payload.writtenText;
-            state.profileId = action.payload.profileId;
+        setPostModel(state, action) {
+            state.Post = action.payload;
         },
-
-        setDefault: (state) => {
-            state.id = 0;
-            state.writtenText = "";
-            state.profileId = 0;
-        }
+    setDefault: (state) =>{
+        state.Post ={};
+    }
     }
 })
 
 
-export const {setPostInfo, setDefault} = PostInfoSlice.actions;
+export const {setPostModel} = PostModelSlice.actions;
 
-export default PostInfoSlice.reducer;
+export default PostModelSlice.reducer;
 
 export const selectPostInfo = (state:RootState) => state.posts;
 
