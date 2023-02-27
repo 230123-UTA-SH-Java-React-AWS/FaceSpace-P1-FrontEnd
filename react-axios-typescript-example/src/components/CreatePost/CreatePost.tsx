@@ -15,7 +15,6 @@ function CreatePost(){
   // const [listOfPost, setListOfPost] = useState<PostModel2[]>([]);
   const posts = useAppSelector(selectPostInfo);
   const dispatch = useAppDispatch();
-  let posting: PostModel;
 
   const handleInputWrittenPost = (event: { target: {value: React.SetStateAction<string>;};}) => {
     setWrittenPost(event.target.value);
@@ -54,6 +53,8 @@ function CreatePost(){
      console.log((posts.Post[0].writtenText));
      console.log((posts.Post[0].profileId));
      console.log((posts.Post));
+     console.log(user.id);
+     
     // posting = posts.step[1];
     // console.log(posting);
     
