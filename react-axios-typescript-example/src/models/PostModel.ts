@@ -4,6 +4,6 @@ export interface PostModel{
   profileId:number
 }
 
-export interface PostModel3{
-  Post:{step:PostModel[]}
+export interface PostModelArray{
+  Post:PostModel[]
 }

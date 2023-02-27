@@ -1,14 +1,15 @@
 import axios from "axios";
 import { useState } from "react";
-import { Comment } from "../../models/Comment";
-import { useAppSelector } from "../../shared/Redux/hook";
+import { Comment, Comment2 } from "../../models/Comment";
+import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
 import { selectPostInfo } from "../Post/PostSlice";
-import { selectComment } from "./CommentSlice";
+import { selectComment, setComment } from "./CommentSlice";
 
 
 function Comments(){
 
+  const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   const posts = useAppSelector(selectPostInfo);
   const comments = useAppSelector(selectComment);
@@ -33,7 +34,7 @@ function Comments(){
     const url = `http://localhost:8080/api/posts`;
 
     axios.post<Comment>(url, newComment).then(response => {
-      console.log(response.data);
+      dispatch(setComment(response.data)); 
     })
 
   }
@@ -47,8 +48,8 @@ function Comments(){
         <div className="text-center">YanWingTsui</div>
       </div>
 
-      <input type="text" />
-      {/* <button type="text" placeholder="Write what you want to post!" value={writtenComment} onChange={handleInputWrittenComment}>Submit</button> */}
+      <input type="text" placeholder="Write what you want to post!" value={writtenComment} onChange={handleInputWrittenComment} />
+      <button onClick={submitComment}>Submit</button>
       <button onClick={showComment}> Get</button>
     
     <p className="username">{}</p>
