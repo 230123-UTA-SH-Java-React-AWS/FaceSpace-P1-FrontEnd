@@ -43,7 +43,7 @@ function NavigationBar(){
     <Link to ="/MyProfile" className="right click">My Profile </Link>
     }
     {
-      <Link to ="/SearchFriends" className="right click">SearchFriends </Link>
+      <Link to ="/SearchFriends" className="right click">Search </Link>
     }
 
   
