@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
 import CreatePost from '../CreatePost/CreatePost';
 import "./LoginBox.css"
 import { selectUser, setUser } from './UserSlice';
-
+import Button from 'react-bootstrap/Button';
 
 function LoginBox() {
     const user = useAppSelector(selectUser);
@@ -47,23 +47,23 @@ function LoginBox() {
     };
 
     return <div id = "LoginBorder" className= "center">
-        <h2>Login</h2>
-        <form>
+        <h3 id="login">Login</h3>
+        <form id="formFormat">
             <p>
-                <label>Email Address: </label>
-                <input id='loginEmail' type="text" name = "email" required/>
+                <label id="emailText">Email Address</label><br/>
+                <input className='inputBox' type="text" name = "email" required/>
             </p>
     
             <p>
-                <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Password:  </label>
-                <input id='loginPassword' type = "text" name = "password" required/>
+                <label id="passwordText">Password</label><br/>
+                <input className='inputBox' type = "text" name = "password" required/>
             </p>
         </form>
         <p>
-            <button onClick={clickHanler}  type = "submit" >Login</button>
+            <Button className="loginButton" onClick={clickHanler}  type = "submit" >Login</Button>
         </p>
         <footer>
-            <p>Do not have an account?
+            <p id="noAccountText">Do not have an account?
                 <a href="/Register"> Create acccount</a>
             </p>
         </footer>

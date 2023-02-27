@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
 import Post from "../Post/Post";
 import { selectPostInfo, setPostModel } from "../Post/PostSlice";
-
+import "./CreatePost.css"
 
 function CreatePost(){
   const user = useAppSelector(selectUser);
