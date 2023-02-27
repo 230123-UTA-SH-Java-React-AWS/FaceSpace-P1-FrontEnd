@@ -5,6 +5,6 @@ export interface Comment{
   postId: number
 }
 
-export interface Comment2{
-  Comments:{step:Comment[]}
+export interface CommentArray{
+  Comments:Comment[]
 }

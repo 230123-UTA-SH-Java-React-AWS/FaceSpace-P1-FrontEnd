@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-import { Comment, Comment2 } from '../../models/Comment';
+import { Comment, CommentArray } from '../../models/Comment';
 import { PostModel } from '../../models/PostModel';
 import { User } from '../../models/User';
 import { useAppDispatch, useAppSelector } from '../../shared/Redux/hook';
@@ -41,7 +41,7 @@ function LoginBox() {
         })
 
         let urlcomment = `http://localhost:8080/api/comments`;
-        axios.get<Comment2>(urlcomment).then(response => {
+        axios.get<Comment[]>(urlcomment).then(response => {
             dispatch(setComment(response.data));
           })
 
@@ -50,7 +50,7 @@ function LoginBox() {
         axios.post<User>(url,newUser).then(response => {
             dispatch(setUser(response.data)); 
             if(response.data.emailAddress !== "User is not logged in"){
-                navigate('/MyProfile');
+                navigate('/CreatePost');
             }
         })
     }

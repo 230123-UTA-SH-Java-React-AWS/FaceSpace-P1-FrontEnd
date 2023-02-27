@@ -77,7 +77,7 @@ function Post(){
       {
         //post information for user slic store
       }
-      {/* <p className="inf">{posts.Post[1].id}</p> */}
+      {/* <p className="inf">{posting.writtenPost}</p> */}
     
     <hr></hr>
     <div className="Button">
