@@ -12,6 +12,7 @@ function NavigationBar(){
     navigate('/Home');
   }
   return <div className="flex">
+
     {
     user.emailAddress !== "User is not logged in" &&
     <Link to ="/CreatePost" className="left click">FaceSpace </Link>
@@ -56,7 +57,6 @@ function NavigationBar(){
       user.emailAddress !== "User is not logged in" && 
       <Link to ="/SearchFriends" className="right click">Search </Link>
     }
-
   
   </div>
 

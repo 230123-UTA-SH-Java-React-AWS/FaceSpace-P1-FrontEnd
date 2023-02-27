@@ -80,9 +80,11 @@ function Registration() {
   };
 
     return <div className= "center">
+        
         <Form className= "formFormat" noValidate validated={validated} onSubmit={handleSubmit}>
+            <div id="createAccountMessage">CREATE AN ACCOUNT</div>
 
-            <Row className="mb-3">
+            <Row id="firstAndLastName" className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
                     <Form.Label>First name</Form.Label>
                     <Form.Control  required type="text" placeholder="First name" value={firstName} onChange={handleInputFName}/>
@@ -114,7 +116,7 @@ function Registration() {
             </Form.Group> */}
 
             <br></br>
-            <Button variant="primary" type="submit" onClick={handleSubmitForm}>
+            <Button className="registerButton" variant="primary" type="submit" onClick={handleSubmitForm}>
                 Register
             </Button>
 

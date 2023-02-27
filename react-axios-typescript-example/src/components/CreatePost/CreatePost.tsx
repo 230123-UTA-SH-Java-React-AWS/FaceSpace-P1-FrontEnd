@@ -7,7 +7,7 @@ import { selectComment } from "../Comment/CommentSlice";
 import { selectUser } from "../LoginPage/UserSlice";
 import Post from "../Post/Post";
 import { addPost, selectPostInfo, setPost } from "../Post/PostSlice";
-
+import "./CreatePost.css"
 
 function CreatePost(){
   const user = useAppSelector(selectUser);

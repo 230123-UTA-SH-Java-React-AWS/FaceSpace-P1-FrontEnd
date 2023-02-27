@@ -13,14 +13,21 @@
 }
 
 .click:hover{
-  background-color: black;
+  /* background-color: black; */
   color: white;
+  text-decoration: none;
 }
 
 .right{
   float: right;
 }
+
 .left{
   float: left;
 }
 
+.flex {
+  /* background-color: #a9ceff; */
+  background-color: #d9e8fd;
+  /* background: linear-gradient(to bottom, #d9e8fd, white); */
+}
