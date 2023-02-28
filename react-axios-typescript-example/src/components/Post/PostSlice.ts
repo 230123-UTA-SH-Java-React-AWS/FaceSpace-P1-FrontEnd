@@ -30,8 +30,7 @@ const PostModelSlice = createSlice({
             
             // state.Post.push(action.payload)
             state.Post = [...state.Post, action.payload];
-            console.log(state);
-            
+            console.log(state);            
         }
     }
 })
