@@ -1,17 +1,17 @@
 import axios from "axios";
 import { useState } from "react";
-import { Comment, Comment2 } from "../../models/Comment";
+import { Comment, CommentArray } from "../../models/Comment";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
-import { selectPostInfo } from "../Post/PostSlice";
-import { selectComment, setComment } from "./CommentSlice";
+import { selectPost } from "../Post/PostSlice";
+import { addComment, selectComment, setComment } from "./CommentSlice";
 
 
 function Comments(){
 
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
-  const posts = useAppSelector(selectPostInfo);
+  const posts = useAppSelector(selectPost);
   const comments = useAppSelector(selectComment);
   const[writtenComment, setWrittenComment] = useState('');
   const handleInputWrittenComment = (event: { target: {value: React.SetStateAction<string>;};}) => {
@@ -19,9 +19,9 @@ function Comments(){
   }
   
 
-  function showComment(){
-    console.log(comments.Comment);
-  }
+  // function showComment(){
+  //   console.log(comments.Comment);
+  // }
 
   function submitComment(){
     const newComment = {
@@ -34,7 +34,7 @@ function Comments(){
     const url = `http://localhost:8080/api/posts`;
 
     axios.post<Comment>(url, newComment).then(response => {
-      dispatch(setComment(response.data)); 
+      dispatch(addComment(response.data)); 
     })
 
   }
@@ -50,7 +50,7 @@ function Comments(){
 
       <input type="text" placeholder="Write what you want to post!" value={writtenComment} onChange={handleInputWrittenComment} />
       <button onClick={submitComment}>Submit</button>
-      <button onClick={showComment}> Get</button>
+      {/* <button onClick={showComment}> Get</button> */}
     
     <p className="username">{}</p>
     <hr></hr>

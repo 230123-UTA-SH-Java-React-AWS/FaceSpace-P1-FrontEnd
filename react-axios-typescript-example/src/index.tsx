@@ -14,6 +14,7 @@ import { Provider } from 'react-redux';
 import { store } from './shared/Redux/store';
 import SearchFriends from './components/SearchFriends/SearchFriends';
 import Comments from './components/Comment/Comments';
+import UserView from './components/UserView/UserView';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

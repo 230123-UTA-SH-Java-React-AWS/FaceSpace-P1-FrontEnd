@@ -1,0 +1,12 @@
+.box {
+    max-width: auto;
+    max-height: auto;
+    margin: 5%;
+    border-radius: 10px;
+    padding: 5%;
+}
+
+.grid {
+    max-width: auto;
+    max-height: auto;
+}

@@ -4,7 +4,7 @@ import { User } from "../../models/User";
 
 const initialState:User = {
     id:0,
-    emailAddress:"User is not logged i",
+    emailAddress:"User is not logged in",
     password:"",
     givenName:"",
     surname:"",
@@ -27,6 +27,7 @@ const UserSlice = createSlice({
         setDefault: (state) => {
             state.id = 0;
             state.emailAddress = "User is not logged in";
+            state.password = "";
             state.givenName = "";
             state.surname = "";
         }

@@ -25,13 +25,12 @@ const PostModelSlice = createSlice({
             // state.Post.push(action.payload);
             state.Post = [...action.payload];
         },
-        addPost:(state,action:PayloadAction<PostModel>) =>{
+        addPost:(state, action:PayloadAction<PostModel>) =>{
             console.log(action);
             
             // state.Post.push(action.payload)
             state.Post = [...state.Post, action.payload];
-            console.log(state);
-            
+            console.log(state);            
         }
     }
 })
@@ -46,5 +45,5 @@ export const {setPost, addPost} = PostModelSlice.actions;
 export default PostModelSlice.reducer;
 
 
-export const selectPostInfo = (state:RootState) => state.posts;
+export const selectPost = (state:RootState) => state.posts;
 

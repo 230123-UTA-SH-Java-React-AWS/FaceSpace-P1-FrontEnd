@@ -15,21 +15,21 @@ import { Alert } from "react-bootstrap";
 function Registration() {
 
     //Use useState hook to set the values
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
-    const [email, setEmail] = useState('');
+    const [givenName, setgivenName] = useState('');
+    const [surname, setsurname] = useState('');
+    const [emailAddress, setemailAddress] = useState('');
     const [password, setPassword] = useState('');
     const [rePassword, setRePassword] = useState('');
  
     //get the value by onchange and use set from useState to change the value
     const handleInputFName= (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        setFirstName(event.target.value);
+        setgivenName(event.target.value);
     }
     const handleInputLName = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        setLastName(event.target.value);
+        setsurname(event.target.value);
     }
    const handleInputEmail = (event: { target: { value: React.SetStateAction<string>; }; }) => {
-        setEmail(event.target.value);
+        setemailAddress(event.target.value);
    }
    const handleInputPassword = (event: { target: { value: React.SetStateAction<string>; }; }) => {
         setPassword(event.target.value);
@@ -42,13 +42,13 @@ function Registration() {
    //Validation for empty and same password
    const handleSubmitForm = () => {
 
-    if(firstName == "" || undefined){
+    if(givenName == "" || undefined){
         return alert("First Name cannot be empty!");
     }
-    if(lastName == "" || undefined){
+    if(surname == "" || undefined){
         return alert("Last Name cannot be empty!");
     }
-    if(email == "" || undefined){
+    if(emailAddress == "" || undefined){
         return alert("Email cannot be empty!");
     }
     if(password == "" || undefined){
@@ -60,9 +60,9 @@ function Registration() {
 
     //set backend variable to input value in frontend Ex: givenName is from backend model, firstName is from frontend useState
     const newUser = {
-        givenName: firstName,
-        surname: lastName,
-        emailAddress: email,
+        givenName: givenName,
+        surname: surname,
+        emailAddress: emailAddress,
         password: password,
     }
     //axios used to connect backend, check backend controller to get the url. respone will hold the object of the data.
@@ -80,22 +80,24 @@ function Registration() {
   };
 
     return <div className= "center">
+        
         <Form className= "formFormat" noValidate validated={validated} onSubmit={handleSubmit}>
+            <div id="createAccountMessage">CREATE AN ACCOUNT</div>
 
-            <Row className="mb-3">
+            <Row id="firstAndLastName" className="mb-3">
                 <Form.Group as={Col} md="6" controlId="validationCustom01">
                     <Form.Label>First name</Form.Label>
-                    <Form.Control  required type="text" placeholder="First name" value={firstName} onChange={handleInputFName}/>
+                    <Form.Control  required type="text" placeholder="First name" value={givenName} onChange={handleInputFName}/>
                 </Form.Group>
                 <Form.Group as={Col} md="6" controlId="validationCustom02">
                     <Form.Label>Last name</Form.Label>
-                    <Form.Control required type="text" placeholder="Last name" value={lastName} onChange={handleInputLName}/>
+                    <Form.Control required type="text" placeholder="Last name" value={surname} onChange={handleInputLName}/>
                 </Form.Group>
             </Row>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email Address </Form.Label>
-                <Form.Control required type="email" placeholder="Email" value={email} onChange={handleInputEmail}/>
+                <Form.Control required type="email" placeholder="Email" value={emailAddress} onChange={handleInputEmail}/>
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicPassword">
@@ -114,7 +116,7 @@ function Registration() {
             </Form.Group> */}
 
             <br></br>
-            <Button variant="primary" type="submit" onClick={handleSubmitForm}>
+            <Button className="registerButton" variant="primary" type="submit" onClick={handleSubmitForm}>
                 Register
             </Button>
 
