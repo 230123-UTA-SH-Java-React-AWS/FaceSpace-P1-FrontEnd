@@ -21,10 +21,10 @@ export default function SearchFriends() {
             givenName: firstName,
             surname: lastName,
         }
-        axios.post<UserInfo>(`http://localhost:8080/api/search_friends`, SearchUser).then(response => {console.log(response.data);
-            setListOfPeople([response.data,...listOfPeople])
+        axios.post<UserInfo[]>(`http://localhost:8080/api/search_friends`, SearchUser).then(response => {console.log(response.data);
+            setListOfPeople(response.data);
+            console.log(listOfPeople);
         })
-        console.log(listOfPeople);
     }
 
     const handleInputFName= (event: { target: { value: React.SetStateAction<string>; }; }) => {
@@ -56,15 +56,15 @@ export default function SearchFriends() {
 
             {/* {JSON.stringify(listOfPeople)} */}
 
-            {
+            {/* {
                 listOfPeople.map((user, index) => {
                     return(
                         <div key={index}>
-                            <p>firstName={user.firstName}</p>
+                            <p>firstName={user.givenName}</p>
                         </div>
                     )
                 })
-            }
+            } */}
 
                 
             </div>

@@ -11,8 +11,8 @@ export default function UserView (props: FoundUser) {
 
     return <div>
         {/* <img className="img" src="https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt=""/> */}
-        <h4> name: {props.firstName}</h4>
-        <h4>family: {props.lastName}</h4>
-        <p>email: {props.email}</p>
+        <h4> name: {props.givenName}</h4>
+        <h4>family: {props.surname}</h4>
+        <p>email: {props.emailAddress}</p>
     </div>
 }
