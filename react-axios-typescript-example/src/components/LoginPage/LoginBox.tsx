@@ -75,7 +75,7 @@ function LoginBox() {
     
             <p>
                 <label id="passwordText">Password</label><br/>
-                <input id='password' className='inputBox' type = "text" name = "password" required/>
+                <input id='password' className='inputBox' type = "password" /*maxLength={10}*/ name = "password" required/>
             </p>
         </form>
         <p>
