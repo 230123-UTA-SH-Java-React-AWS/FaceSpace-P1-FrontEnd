@@ -27,6 +27,7 @@ const UserSlice = createSlice({
         setDefault: (state) => {
             state.id = 0;
             state.emailAddress = "User is not logged in";
+            state.password = "";
             state.givenName = "";
             state.surname = "";
         }

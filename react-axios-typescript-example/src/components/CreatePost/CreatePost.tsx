@@ -5,13 +5,12 @@ import { User } from "../../models/User";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectComment } from "../Comment/CommentSlice";
 import { selectUser } from "../LoginPage/UserSlice";
-import Post from "../Post/Post";
-import { addPost, selectPostInfo, setPost } from "../Post/PostSlice";
+import { addPost, selectPost} from "../Post/PostSlice";
 import "./CreatePost.css"
 
 function CreatePost(){
   const user = useAppSelector(selectUser);
-  const posts = useAppSelector(selectPostInfo);
+  const posts = useAppSelector(selectPost);
   const comments = useAppSelector(selectComment);
 
   const [showComment, setShowComment] = useState(false);
@@ -34,30 +33,32 @@ function CreatePost(){
   function submitPost(){
 
     const newPost = {
-      id:0,
+      id: 0,
       writtenText: writtenPost,
-      profileId: 0
+      profileId: user.id
     }
 
-    const url = `http://localhost:8080/api/posts`;
+    const url = "http://localhost:8080/api/posts";
 
     axios.post<PostModel>(url, newPost).then(response => {
       dispatch(addPost(response.data));
     })    
     
+    console.log(writtenPost);
+    
   }
 
-  function submitComment(id:number){
-    const newComment = {
-      id:0,
-      writtenText: writtenComment,
-      profileId: 0,
-      postId: 0
-    }
-  } 
+  // function submitComment(id:number){
+  //   const newComment = {
+  //     id:0,
+  //     writtenText: writtenComment,
+  //     profileId: 0,
+  //     postId: 0
+  //   }
+  // } 
 
   function Count(){
-    if(like == true){
+    if(like === true){
       setLike(false);
       setCountLike(countLike-1);
     }else{
@@ -108,13 +109,13 @@ function CreatePost(){
 
 <div className="Comment" >
 <form action="">
-  <textarea id="comment" className= "input" typeof="text" placeholder="Write a comment"/>
+  {/* <textarea placeholder="Write what you want to comment!" value={writtenComment} onChange={handleInputWrittenComment}/> */}
  </form>
+ <button>Add Comment</button>
 
-<input type="text" placeholder="Write what you want to comment!" value={writtenComment} onChange={handleInputWrittenComment}  />
 </div>
 
-<h6>Comment : </h6>
+{/* <h6>Comment : </h6> */}
 {/* <div>{ShowC()}</div> */}
 
 </div>})}

@@ -4,7 +4,7 @@ import { Comment } from "../../models/Comment";
 import Comments from "../Comment/Comments";
 import { useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
-import { selectPostInfo } from "./PostSlice";
+import { selectPost } from "./PostSlice";
 import { PostModel } from "../../models/PostModel";
 
 function Post(){
@@ -14,7 +14,7 @@ function Post(){
   const [countLike, setCountLike] = useState(0);
   const [like, setLike] = useState(false);
   const user = useAppSelector(selectUser);
-  const posts = useAppSelector(selectPostInfo);
+  const posts = useAppSelector(selectPost);
 
   // function submitComment(){
   //   let comment = document.querySelector<HTMLInputElement>("#comment")?.value || "";

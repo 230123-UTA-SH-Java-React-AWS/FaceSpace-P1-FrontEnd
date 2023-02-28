@@ -23,8 +23,13 @@ function LoginBox() {
     }
 
     function Login(){
-        let userEmail = document.querySelector<HTMLInputElement>("#loginEmail")?.value;
-        let userPassword = document.querySelector<HTMLInputElement>("#loginPassword")?.value;
+        let userEmail = document.querySelector<HTMLInputElement>("#emailAddress")?.value;
+        let userPassword = document.querySelector<HTMLInputElement>("#password")?.value;
+
+        console.log(userEmail);
+        console.log(userPassword);
+        
+        
 
         const newUser = {
             id: 0,
@@ -40,14 +45,14 @@ function LoginBox() {
           dispatch(setPost(response.data));
         })
 
-        let urlcomment = `http://localhost:8080/api/comments`;
-        axios.get<Comment[]>(urlcomment).then(response => {
-            dispatch(setComment(response.data));
-          })
+        // let urlcomment = `http://localhost:8080/api/comments`;
+        // axios.get<Comment[]>(urlcomment).then(response => {
+        //     dispatch(setComment(response.data));
+        //   })
 
-        let url = `http://localhost:8080/api/login`;
+        let urlUser = `http://localhost:8080/api/login`;
 
-        axios.post<User>(url,newUser).then(response => {
+        axios.post<User>(urlUser,newUser).then(response => {
             dispatch(setUser(response.data)); 
             if(response.data.emailAddress !== "User is not logged in"){
                 navigate('/CreatePost');
@@ -65,16 +70,16 @@ function LoginBox() {
         <form id="formFormat">
             <p>
                 <label id="emailText">Email Address</label><br/>
-                <input className='inputBox' type="text" name = "email" required/>
+                <input id='emailAddress' className='inputBox' type="text" name = "email" required/>
             </p>
     
             <p>
                 <label id="passwordText">Password</label><br/>
-                <input className='inputBox' type = "text" name = "password" required/>
+                <input id='password' className='inputBox' type = "text" name = "password" required/>
             </p>
         </form>
         <p>
-            <Button className="loginButton" onClick={clickHanler}  type = "submit" >Login</Button>
+            <Button className="loginButton" onClick={Login}  type = "submit" >Login</Button>
         </p>
         <footer>
             <p id="noAccountText">Do not have an account?

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Comment, CommentArray } from "../../models/Comment";
 import { useAppDispatch, useAppSelector } from "../../shared/Redux/hook";
 import { selectUser } from "../LoginPage/UserSlice";
-import { selectPostInfo } from "../Post/PostSlice";
+import { selectPost } from "../Post/PostSlice";
 import { addComment, selectComment, setComment } from "./CommentSlice";
 
 
@@ -11,7 +11,7 @@ function Comments(){
 
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
-  const posts = useAppSelector(selectPostInfo);
+  const posts = useAppSelector(selectPost);
   const comments = useAppSelector(selectComment);
   const[writtenComment, setWrittenComment] = useState('');
   const handleInputWrittenComment = (event: { target: {value: React.SetStateAction<string>;};}) => {
