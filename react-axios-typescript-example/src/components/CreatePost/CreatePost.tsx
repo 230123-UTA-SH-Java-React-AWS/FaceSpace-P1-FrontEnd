@@ -47,26 +47,7 @@ function CreatePost(){
 
   // }
 
-  function hi(){
-<<<<<<< HEAD
-      console.log((posts.Post[0].id));
-      console.log((posts.Post[0].writtenText));
-      console.log((posts.Post[0].profileId));
-      console.log((posts.Post));
-      console.log(user.id);
 
-=======
-    //  console.log((posts.Post.step[0].id));
-    //  console.log((posts.Post.step[0].writtenText));
-    //  console.log((posts.Post.step[0].profileId));
-    //  console.log((posts.Post));
-     console.log(posts.Post);
->>>>>>> 465ea949bc7c633da6bb28a9edae6405546555a9
-     
-    // posting = posts.step[1];
-    // console.log(posting);
-    
-  }
 
 
   return <div className="Post_Border">
@@ -75,7 +56,6 @@ function CreatePost(){
     <input type="text" placeholder="Write what you want to post!" value={writtenPost} onChange={handleInputWrittenPost} />
     <button  id="newPost" type="submit" onClick={submitPost}>Post</button>
     {/* <button onClick={getPost}>GetPost</button> */}
-    <button onClick={hi}>Get</button>
     <div>{posts.Post.map(posting => {return <div>{posting.writtenText}</div>})}</div>
     
   </div> 
