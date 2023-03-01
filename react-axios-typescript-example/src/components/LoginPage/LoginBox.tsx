@@ -51,13 +51,14 @@ function LoginBox() {
         //   })
 
         let urlUser = `http://localhost:8080/api/login`;
-
+        
         axios.post<User>(urlUser,newUser).then(response => {
             dispatch(setUser(response.data)); 
             if(response.data.emailAddress !== "User is not logged in"){
                 navigate('/CreatePost');
             }
-        })
+        }).catch(error => {alert("Incorrect Password or Email.")} )
+ 
     }
 
     const clickHanler = () =>{
