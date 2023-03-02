@@ -81,45 +81,50 @@ function CreatePost(){
     <input type="text" placeholder="Write what you want to post!" value={writtenPost} onChange={handleInputWrittenPost} />
     <button  id="newPost" type="submit" onClick={submitPost}>Post</button>
     {/* <button onClick={getPost}>GetPost</button> */}
-    <div>{posts.Post.slice(0).reverse().map(posting => {return <div className="Post_Border">
+    <div>{posts.Post.slice(0).reverse().map(posting => {
+      if(posting.profileId == user.id){
+       return <div className="Post_Border">
 
-    
-<div className="username">
-  <img className="image" src="https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt="" />
-  {
-  //username from user slice store
-  }
-  <div className="text-center">
-    {user.givenName} {user.surname}
-    </div>
-</div>
-{
-  //post information for user slic store
-}
-<p className="inf">{posting.writtenText}</p>
+            
+        <div className="username">
+          <img className="image" src="https://as2.ftcdn.net/v2/jpg/02/29/75/83/1000_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg" alt="" />
+          {
+          //username from user slice store
+          }
+          <div className="text-center">
+            {user.givenName} {user.surname}
+            </div>
+        </div>
+        {
+          //post information for user slic store
+        }
+        <p className="inf">{posting.writtenText}</p>
 
-<hr></hr>
-<div className="Button">
-<button onClick={Count}>Like</button>
-{countLike}
-<button onClick={Show}>View Comment</button>
-</div>
-<hr></hr>
+        {/* <hr></hr>
+        <div className="Button">
+        <button onClick={Count}>Like</button>
+        {countLike}
+        <button onClick={Show}>View Comment</button>
+        </div>
+        <hr></hr> */}
 
 
-<div className="Comment" >
-<form action="">
-  {/* <textarea placeholder="Write what you want to comment!" value={writtenComment} onChange={handleInputWrittenComment}/> */}
- </form>
- <button>Add Comment</button>
+        {/* <div className="Comment" >
+        <form action=""> */}
+          {/* <textarea placeholder="Write what you want to comment!" value={writtenComment} onChange={handleInputWrittenComment}/> */}
+        {/* </form>
+        <button>Add Comment</button>
 
-</div>
+        </div> */}
 
-{/* <h6>Comment : </h6> */}
-{/* <div>{ShowC()}</div> */}
+        {/* <h6>Comment : </h6> */}
+        {/* <div>{ShowC()}</div> */}
 
-</div>})}
+        </div>}
+    }
 
+)}
+      
 </div>
 </div>
 }

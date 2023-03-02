@@ -13,13 +13,13 @@ function NavigationBar(){
   }
   return <div className="flex">
 
-    {
+    {/* {
     user.emailAddress !== "User is not logged in" &&
-    <Link to ="/CreatePost" className="left click">FaceSpace </Link>
-    } 
+    <Link to ="/" className="left click">FaceSpace </Link>
+    }  */}
 
     {
-    user.emailAddress === "User is not logged in" &&
+    // user.emailAddress === "User is not logged in" &&
     <Link to ="/" className="left click">FaceSpace </Link>
     } 
 
@@ -47,16 +47,16 @@ function NavigationBar(){
     } */}
      {
       user.emailAddress !== "User is not logged in" && 
-    <Link to ="/Comment" className="right click">Comment </Link>
+    <Link to ="/CreatePost" className="right click">Post Feed</Link>
     }
-    {
+    {/* {
       user.emailAddress !== "User is not logged in" &&  
     <Link to ="/MyProfile" className="right click">My Profile </Link>
-    }
-    {
+    } */}
+    {/* {
       user.emailAddress !== "User is not logged in" && 
       <Link to ="/SearchFriends" className="right click">Search </Link>
-    }
+    } */}
   
   </div>
 

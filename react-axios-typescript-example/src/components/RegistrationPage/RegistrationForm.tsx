@@ -66,7 +66,7 @@ function Registration() {
         password: password,
     }
     //axios used to connect backend, check backend controller to get the url. respone will hold the object of the data.
-    axios.post<UserInfo>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);})
+    axios.post<UserInfo>(`http://localhost:8080/api/users`, newUser).then(response => {console.log(response.data);}).catch(error => {alert("An account with that email has already been created.") })
    }
 
     const [validated, setValidated] = useState(false);
