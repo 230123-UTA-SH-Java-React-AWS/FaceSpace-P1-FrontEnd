@@ -1,0 +1,10 @@
+.back1{
+  display: flex;
+  min-height: 94.2vh;
+  min-width: 90vh;
+  background-image: url('Facespace.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: 100% 100%;
+  margin: 0 auto;
+}

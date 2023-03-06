@@ -1,0 +1,52 @@
+.username{
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.image{
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  width: 5%;
+}
+
+.inf{
+  padding-left: 60px;
+}
+
+.Post_Border{
+  border: solid;
+  border: 1px solid #ddd;
+  border-radius: 0.1%;
+  padding: 5px;
+  background-color: rgb(53, 51, 51);
+  color: #ddd;
+  gap: 5px;
+}
+
+.Comment{
+  display:flex;
+  max-width: 100%;
+}
+
+.input{
+  min-width: 50%;
+  min-height: 45px;
+  border-radius: 5px;
+}
+
+.Sbutton{
+  min-height: 50px;
+  min-width: 17%;
+}
+
+.grid-Box{
+  max-width: 100%;
+  display: grid;
+
+  grid-template-columns: repeat(1, 1fr);
+}
+
+

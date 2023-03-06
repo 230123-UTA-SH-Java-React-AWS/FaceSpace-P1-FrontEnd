@@ -1,0 +1,33 @@
+.flex{
+  flex-direction: row;
+  gap: 20px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.click{
+  text-decoration: none;
+  color: black;
+  margin: 5px;
+  padding: 8px;
+}
+
+.click:hover{
+  /* background-color: black; */
+  color: white;
+  text-decoration: none;
+}
+
+.right{
+  float: right;
+}
+
+.left{
+  float: left;
+}
+
+.flex {
+  /* background-color: #a9ceff; */
+  background-color: #d9e8fd;
+  /* background: linear-gradient(to bottom, #d9e8fd, white); */
+}
